@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app1">
+        <input type="text" v-model="text">
+        {{text}}
+    </div>
+
+
+    <!-- 计算属性，不能接受参数，必须返回一个结果
+    和data属性内的数据一样，可以通过{{ }}来插入到页面 -->
+    <div id="app2">
+        <input type="text" v-model="reversedText">
+        {{reversedText}}
+    </div>
+
+
+    <!-- 方法属性，可以接受参数
+    当返回一个结果时，也可以通过{{ }}插入到页面，但要写作调用方法的形式，即方法名() -->
+    <div id="app3">
+        <input type="text" v-model="reversedText()">
+        {{reversedText()}}
+    </div>
+
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车示例</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <template v-if="list.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>商品名称</th>
+                        <th>商品单价</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                        <th>
+                            <!-- v-model绑定复选框 -->
+                            <!-- 1.绑定的数据是布尔值，当为false时，则框不选中 -->
+                            <!-- 2.绑定的数据是数组,当数组为空时,则框不选中 -->
+                            <input type="checkbox" v-model="checked" @click="checkAll">全选</input>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in list">
+                        <td> {{index+1}} </td>                        
+                        <td> {{item.name}} </td>                        
+                        <td> {{item.price}} </td>                        
+                        <td>
+                            <button @click="handleReduce(index)">
+                                -
+                            </button>    
+                            {{item.count}}
+                            <button @click="handleAdd(index)">
+                                +
+                            </button>    
+                        </td>                        
+                        <td>
+                            <button @click="handleRemove(index)">移除</button>
+                        </td>   
+                        <td>   
+                            <!-- v-model绑定复选框 -->
+                            <!-- 1.绑定的数据是布尔值，当为false时，则框不选中 -->
+                            <!-- 2.绑定的数据是数组,当数组为空时,则框不选中 --> 
+                            <input type="checkbox"  v-model="priceList" :value=onePrice(index)>
+                            <!-- 下面显示数据，只是作为调式，便于直观查看，不属于业务 -->
+                            <!-- {{onePrice(index)}}
+                            {{priceList}} -->
+                        </td>                    
+                    </tr>
+                </tbody>
+            </table>
+            总价：￥ {{totalPrice}}
+        </template>
+        <div v-else>购物车为空</div>
+    </div>
+
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

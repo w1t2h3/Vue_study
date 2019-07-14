@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <h1>v-model 与 v-bind 联合作用:实现绑定一个动态的数据</h1>
+        <hr>
+
+        <!-- 单选按钮 -->
+        <input type="radio" v-model="picked" :value="value"/>
+        <!-- 选择前是true,选择后是123 -->
+        <!-- 也就是选中时，app.picked === app.value -->
+        <p>按钮选中后，picked的值：{{picked}}</p>
+
+
+
+        <!-- 复选框 -->
+        <input type="checkbox" 
+                v-model="toggle"
+                :true-value="value1"
+                :false-value="value2">
+        <!-- 选中时，app.toggle === app.value1 -->
+        <!-- 取消选中时，app.toggle === app.value2 -->
+        <!-- 下面两行的效果一样 -->
+        <p> {{'按钮选中后，toggle的值：' + toggle}} </p>
+        <p> 按钮选中后，toggle的值：{{toggle}} </p>
+
+
+
+        <!-- 选择列表 -->
+        <select v-model="selected">
+            <!-- 选中后，app.selected是一个对象 -->
+            <option :value="user">张三</option>
+        </select>
+        
+        <p> 选中的用户：{{selected}} </p>
+        <p> 选中用户的年龄：{{selected.age}} </p>
+        <p> 选中用户的性别：{{selected.gender}} </p>
+        
+    </div>
+
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

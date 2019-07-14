@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 选择列表单选 -->
+        <!-- 当在选择列表上选择某项后，如果<option>含有value属性，则v-model会优先匹配value的值 -->
+        <!-- 如果没有value属性，则直接匹配<option>的text -->
+        <select v-model="selected">
+            <option>html</option>
+            <option value="c">css</option>
+            <option value="js">javascript</option>
+           
+        </select>
+        <p>选择的项是：{{selected}}</p>
+
+
+        <!-- 选择列表多选，需要在<select>内加上multiple属性 -->
+        <!-- v-model绑定的是一个数组，选择后，会将value属性值或者text值push到数组中 -->
+        <select v-model="selected2" multiple>
+            <option>html</option>
+            <option value="c">css</option>
+            <option value="js">javascript</option>
+           
+        </select>
+        <p>选择的项是：{{selected2}}</p>
+    </div>
+
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

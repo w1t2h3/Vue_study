@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app1">
+        <component1></component1>
+        <component2></component2>
+
+        <p>下面是表格</p>
+        <!-- Vue组件的模板在某些情况下会受到HTML的限制 -->
+        <!-- 比如<table>内规定只允许是<tr><td><th>等这些表格元素，所以在<table>内直接使用组件是无效的 -->
+        <!-- 这种情况下，可以使用is属性来挂载组件，tbody在渲染时，会被替换为组件的内容  -->
+        <table>
+            <tbody is="component1"></tbody>
+        </table>
+
+    </div>
+    <hr>
+    <div id="app2">
+        <component1></component1>
+        <!-- 因为component2是注册在app1实例内的局部组件，所以只在app1实例作用域内有效 -->
+        <!-- <component2></component2> -->
+    </div>
+
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
