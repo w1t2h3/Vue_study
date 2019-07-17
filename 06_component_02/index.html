@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--  父组件传递的数据被绑定在data数据上，所以父组件的数据变化时，也会传递给子组件   -->
+        <input type="text" v-model="msg">
+        <my-component :message="msg"></my-component>
+
+        <!--  父组件传递的数据就是一个字符串  -->
+        <com arr="[1,2,3]"></com>
+        <!-- 绑定这个数据后，它就表示数组  -->
+        <com :arr="[1,2,3]"></com>
+
+        <!-- 传递的是字符串"12", 所以渲染的结果是121-->
+        <compo  init-count="12"></compo>
+        <!--  传递的是数字12，所以渲染结果是13  -->
+        <compo :init-count="12"></compo>
+
+        <!-- 是否绑定都一样，因为都要和后面的字符串'px'相加，得到的还是字符串 -->
+        <component-my font-size="100"></component-my>
+
+        <!-- 下面是普通的手写style样式 -->
+        <div style="font-size:100px;color:red">组件</div>
+    </div>
+   
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

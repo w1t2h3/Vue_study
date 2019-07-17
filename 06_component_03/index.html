@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        总数：{{total}}
+        <!-- 外部组件（父组件）通过@increase， -->
+        <!-- 也就是v-on:increase来监听子组件触发的increase事件 -->
+        <my-component 
+              @increase="handleGetTotal"
+              @reduce="handleGetTotal">
+        </my-component>
+    </div>
+
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
